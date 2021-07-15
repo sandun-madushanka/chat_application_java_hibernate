@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 12, 2017 8:05:53 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="pojos.Privatechatroom" table="privatechatroom" catalog="chatapp">
+        <id name="pcrId" type="java.lang.Integer">
+            <column name="pcr_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="chatroom" class="pojos.Chatroom" fetch="select">
+            <column name="chatroom_cr_id" not-null="true" />
+        </many-to-one>
+        <property name="user2Id" type="int">
+            <column name="user2_id" not-null="true" />
+        </property>
+        <property name="user1Id" type="int">
+            <column name="user1_id" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

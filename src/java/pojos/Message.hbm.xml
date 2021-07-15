@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 12, 2017 8:05:53 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="pojos.Message" table="message" catalog="chatapp">
+        <id name="msgId" type="java.lang.Integer">
+            <column name="msg_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="pojos.User" fetch="select">
+            <column name="user_u_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="chatroom" class="pojos.Chatroom" fetch="select">
+            <column name="chatroom_cr_id" not-null="true" />
+        </many-to-one>
+        <property name="msg" type="string">
+            <column name="msg" length="1000" />
+        </property>
+        <property name="msgTime" type="timestamp">
+            <column name="msg_time" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>
